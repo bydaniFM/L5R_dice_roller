@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>Tiradas L5A</title>
+</head>
+	<body>
+	<script type="text/javascript">
+		var dados = [];
+		var result = 0;
+		var tmp = 0;
+		var numDados;
+		var guarDados;
+		numDados = prompt('Numero de dados');
+		guarDados = prompt('Dados a guardar');
+
+		document.write('<p>Numero de dados = '+numDados+'<br></p>');
+		document.write('<p>Dados a guardar = '+guarDados)+'<br></p>';
+
+		for(var i = 0; i < numDados; i++){
+			dados[i] = Math.floor((Math.random() * 10) + 1);
+		}
+
+		dados.sort(function(a, b){return b-a});
+		toString();
+
+		for(var i = 0; i < guarDados; i++){
+			if(dados[i] == 10)
+				diez();
+			result += dados[i];
+		}
+
+		document.write('<p>Resultado de la tirada: '+result+'</p>');
+
+		function toString(){
+			document.write('<p>Dados tirados:');
+			for(var i = 0; i<numDados;i++){
+				document.write(' '+dados[i]+' ');
+			}
+			document.write('</p>');
+		}
+		function diez(){
+			var temp;
+			document.write('<p>Resultado del diez: ');
+			do{
+				temp = Math.floor((Math.random() * 10) + 1);
+				result += temp;
+				document.write(temp+' ');
+			}while(temp == 10);
+			document.write('</p>');
+		}
+	</script>
+	<a href="index.html">Repetir</a>
+	</body>
+</html>
